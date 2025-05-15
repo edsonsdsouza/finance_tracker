@@ -1,5 +1,7 @@
 import sys
 
+from tracker.transaction import Transaction
+
 class FinancialTracker:
     def __init__(self):
         self.menu()
@@ -15,11 +17,15 @@ class FinancialTracker:
             """))
         except ValueError as e:
             print(f"ValueError: {e}")
+            self.menu()
+        except KeyboardInterrupt as e:
+            print(e)
         else:
             if user_input == 1:
-                self.transaction()
+                self.transaction = Transaction()
+                self.transaction.transaction_menu()
             elif user_input == 2:
-                self.financial_report()
+                pass
             else:
                 sys.exit(0)
 
