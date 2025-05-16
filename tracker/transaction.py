@@ -32,7 +32,7 @@ class Transaction:
             if amount_type == "income":
                 self.ledger.income(amount_type, amount)
             elif amount_type == "expenditure":
-                category = input("Enter the category (Grocery, Online Shopping, Pharmacy, Electricity Bill, Water Bill, Other)").strip().lower()
+                category = input("Enter the category (Grocery, Online Shopping, Pharmacy, Electricity Bill, Water Bill, Other): ").strip().lower()
                 self.ledger.expenditure(amount_type, category, amount)
             else:
                 print("Enter the valid input")
