@@ -1,6 +1,7 @@
 import sys
 
 from tracker.transaction import Transaction
+from tracker.utils import FinancialReport
 
 class FinancialTracker:
     def __init__(self):
@@ -18,11 +19,12 @@ class FinancialTracker:
         except Exception as e:
             print(f"Something went wrong: {e}. Please try again!!")
         else:
+            self.transaction = Transaction()
             if user_input == 1:
-                self.transaction = Transaction()
                 self.transaction.transaction_menu()
             elif user_input == 2:
-                pass
+                report = FinancialReport(self.transaction.filename)
+                report.calculate_amount()
             else:
                 sys.exit(0)
 
