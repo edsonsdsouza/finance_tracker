@@ -15,11 +15,8 @@ class FinancialTracker:
             2. Enter 2 to get the financial report
             3. Enter anything else to exit
             """))
-        except ValueError as e:
-            print(f"ValueError: {e}")
-            self.menu()
-        except KeyboardInterrupt as e:
-            print(e)
+        except Exception as e:
+            print(f"Something went wrong: {e}. Please try again!!")
         else:
             if user_input == 1:
                 self.transaction = Transaction()
